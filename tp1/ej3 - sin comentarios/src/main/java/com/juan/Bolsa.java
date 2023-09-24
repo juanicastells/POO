@@ -24,7 +24,7 @@ public class Bolsa extends Producto{
     }
 
     public double precioPromocional (){
-         return this.precio()/1.1;
+         return this.precio()*0.9;
     }
  
 
