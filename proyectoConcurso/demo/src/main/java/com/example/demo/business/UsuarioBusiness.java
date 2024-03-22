@@ -81,5 +81,12 @@ public class UsuarioBusiness{
     public PasswordEncoder passwordEncoder(){
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
+
+    public Usuario asignarMaterial (String mail, MaterialEducativo material){
+        Usuario usuario = new Usuario();
+        usuario = usuarioRepository.findBymail(mail);
+        usuario.setMaterialEducativo(material);
+        return usuarioRepository.save(usuario);
+    }
     
 }

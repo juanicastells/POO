@@ -73,5 +73,4 @@ public class Usuario{
         this.materialEducativo = materialEducativo;
     }
 
-
 }

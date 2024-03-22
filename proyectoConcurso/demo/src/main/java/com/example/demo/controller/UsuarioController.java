@@ -62,7 +62,6 @@ public class UsuarioController {
             model.addAttribute("usuario", usuario);
             return "formularioModificarUsuario";
         } else {
-            // Puedes agregar un mensaje de error si el usuario no se encuentra
             model.addAttribute("error", "Usuario no encontrado");
             return "modificacion";
         }

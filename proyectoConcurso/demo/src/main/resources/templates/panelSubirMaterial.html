@@ -14,6 +14,8 @@
     <h2>Subir Material</h2>
     <form th:action="@{/subirMaterial}" method="post" enctype="multipart/form-data">
 
+        <input type="hidden" name="username" th:value="${#authentication.principal.username}" />
+
         <label>Nombre del Material</label>
         <input type="text" name ="nombreMaterial" class="form-control" required>
     

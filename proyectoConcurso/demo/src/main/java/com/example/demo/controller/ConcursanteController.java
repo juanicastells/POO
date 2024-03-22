@@ -22,12 +22,13 @@ public class ConcursanteController {
     }
 
     @PostMapping("/subirMaterial")
-    public String subirMaterial(@RequestParam("documento") MultipartFile documento,
-                                   @RequestParam("nombreMaterial") String nombreMaterial,
-                                   @RequestParam("descripcion") String descripcion) {
+    public String subirMaterial(@RequestParam("username") String username,
+                                @RequestParam("documento") MultipartFile documento,
+                                @RequestParam("nombreMaterial") String nombreMaterial,
+                                @RequestParam("descripcion") String descripcion) {
         //necesito crearlo y persistirlo para que me genere el id el cual asocio con el usuario                     
         //faltaria poder tomar el id del usuario que en ese momento sube el material para luego asociarle el material.
-        MaterialEducativo nuevoMaterial = materialEducativoBusiness.crearNuevoMaterial();
+        MaterialEducativo nuevoMaterial = materialEducativoBusiness.crearNuevoMaterial(username);
         materialEducativoBusiness.actualizarMaterialEducativo(nuevoMaterial.getIdMaterial(), nombreMaterial, descripcion)/*documento*/;
         return "inicioConcursante";
     }

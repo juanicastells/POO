@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.MaterialEducativo;
 import com.example.demo.entity.Usuario;
 import com.example.demo.repository.MaterialEducativoRepository;
+import com.example.demo.repository.UsuarioRepository;
 
 @Service
 public class MaterialEducativoBusiness {
@@ -13,9 +14,15 @@ public class MaterialEducativoBusiness {
     @Autowired
     MaterialEducativoRepository materialEducativoRepository;
 
-    public MaterialEducativo crearNuevoMaterial (/*Usuario autorMaterial*/){
+    @Autowired
+    UsuarioRepository usuarioRepository;
+
+    @Autowired
+    UsuarioBusiness usuarioBusiness;
+
+    public MaterialEducativo crearNuevoMaterial (String mailAutorMaterial){
         MaterialEducativo nuevoMaterial = new MaterialEducativo();
-        //autorMaterial.setMaterialEducativo(nuevoMaterial);
+        usuarioBusiness.asignarMaterial(mailAutorMaterial, nuevoMaterial);
         return materialEducativoRepository.save(nuevoMaterial);
     }
 
